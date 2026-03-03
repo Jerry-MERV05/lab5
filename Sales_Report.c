@@ -9,12 +9,14 @@
 
 #include <stdio.h>
 
-void get_sales(float sales[], char *months[12]) {
-    for (int i = 0; i < 12; i++) {
-        printf("Please enter the sales for month %s: ", months[i]);
-        scanf("%f", &sales[i]);
-    }
-}
+void get_sales(float sales[], char *months[12]);
+void sort_descending(float sales[], char *months[12], int size);
+float calculate_average(float sales[], int size, int start_index, int end_index);
+
+void print_sales_report(float sales[], char *months[12]);
+void sales_summary_report(float sales[], char *months[12]);
+void moving_average_report(float sales[], char *months[12]);
+void descending_sales_report(float sales[], char *months[12]);
 
 int main() {
 
@@ -31,4 +33,11 @@ int main() {
     printf("\nSales Report for %d\n", year);
 
     return 0;
+}
+
+void get_sales(float sales[], char *months[12]) {
+    for (int i = 0; i < 12; i++) {
+        printf("Please enter the sales for month %s: ", months[i]);
+        scanf("%.2f", &sales[i]);
+    }
 }
