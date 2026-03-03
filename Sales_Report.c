@@ -9,7 +9,26 @@
 
 #include <stdio.h>
 
+void get_sales(float sales[], char *months[12]) {
+    for (int i = 0; i < 12; i++) {
+        printf("Please enter the sales for month %s: ", months[i]);
+        scanf("%f", &sales[i]);
+    }
+}
+
 int main() {
+
+    int year;
+    float sales[12];
+    char *months[12] = {"January", "February", "March", "April", "May", "June", 
+                        "July", "August", "September", "October", "November", "December"};
+
+    printf("Please enter the year for the sales report: ");
+    scanf("%d", &year);
+
+    get_sales(sales, months);
+
+    printf("\nSales Report for %d\n", year);
 
     return 0;
 }
