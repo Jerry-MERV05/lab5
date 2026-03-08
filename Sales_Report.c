@@ -38,9 +38,9 @@ int main() {
 }
 
 void print_sales_report(float sales[], char *months[12]) {
-    printf("%-10s %15s\n", "Month", "Sales");
+    printf("\n%-10s %-16s\n", "Month", "Sales");
     for (int i = 0; i < 12; i++) {
-        printf("%-10s $%14.2f\n", months[i], sales[i]);
+        printf("%-10s $%-15.2f\n", months[i], sales[i]);
     }
 }
 
@@ -65,7 +65,7 @@ void sales_summary_report(float sales[], char *months[12]) {
 
     float average_sales = calculate_average(sales, 0, 11);
 
-    printf("Minimum Sales: %.2f (%s)\n", min, months[month_min]);
+    printf("\nMinimum Sales: %.2f (%s)\n", min, months[month_min]);
     printf("Maximum Sales: %.2f (%s)\n", max, months[month_max]);
     printf("Average Sales: %.2f\n", average_sales);
 }
@@ -79,9 +79,12 @@ float calculate_average(float sales[], int start_index, int end_index) {
 }
 
 void moving_average_report(float sales[], char *months[12]) {
+    char range[50];
+    printf("\n");
     for (int i = 0; i <= 6; i++) {
         float average = calculate_average(sales, i, i + 5);
-        printf("%s - %s: %.2f\n", months[i], months[i + 5], average);
+        sprintf(range, "%s - %s", months[i], months[i + 5]);
+        printf("%-18s: $%.2f\n", range, average);
     }
 }
 
