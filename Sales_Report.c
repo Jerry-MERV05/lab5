@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 
+// Function prototypes
 void sort_descending(float sales[], char *months[12]);
 float calculate_average(float sales[], int start_index, int end_index);
 
@@ -19,12 +20,14 @@ void descending_sales_report(float sales[], char *months[12]);
 
 int main() {
 
+    // Initialize sales data and month names
     int year = 2024;
     float sales[12] = {23458.01, 40112.00, 56011.85, 37820.88, 37904.67, 60200.22, 72400.31, 
                         56210.89, 67230.84, 68233.12, 80950.34, 95225.22};
     char *months[12] = {"January", "February", "March", "April", "May", "June", 
                         "July", "August", "September", "October", "November", "December"};
 
+    // Generate and display the sales report
     printf("\nMonthly Sales Report for %d\n", year);
     print_sales_report(sales, months);
     printf("\nSales Summary Report:\n");
@@ -37,6 +40,7 @@ int main() {
     return 0;
 }
 
+// Function to print the sales report
 void print_sales_report(float sales[], char *months[12]) {
     printf("\n%-10s %-16s\n", "Month", "Sales");
     for (int i = 0; i < 12; i++) {
@@ -44,6 +48,7 @@ void print_sales_report(float sales[], char *months[12]) {
     }
 }
 
+// Function to calculate and display the minimum, maximum, and average sales
 void sales_summary_report(float sales[], char *months[12]) {
     
     float min = sales[0];
@@ -70,6 +75,7 @@ void sales_summary_report(float sales[], char *months[12]) {
     printf("Average Sales: %.2f\n", average_sales);
 }
 
+// Function to calculate the average sales for a given range of months
 float calculate_average(float sales[], int start_index, int end_index) {
     float sum = 0.0;
     for (int i = start_index; i <= end_index; i++) {
@@ -78,9 +84,13 @@ float calculate_average(float sales[], int start_index, int end_index) {
     return (float)(sum / (end_index - start_index + 1));
 }
 
+// Function to generate and display the six-month moving average report
 void moving_average_report(float sales[], char *months[12]) {
+    // The six-month moving average will be stored in the range variable for display purposes
     char range[50];
     printf("\n");
+
+    // Calculate and display the six-month moving average for each month starting from January to June
     for (int i = 0; i <= 6; i++) {
         float average = calculate_average(sales, i, i + 5);
         sprintf(range, "%s - %s", months[i], months[i + 5]);
@@ -88,9 +98,13 @@ void moving_average_report(float sales[], char *months[12]) {
     }
 }
 
+// Function to sort sales in descending order and display the report
 void sort_descending(float sales[], char *months[12]) {
 
+    // Selection sort algorithm to sort sales in descending order
+    // And since this function will be called at last, we can modify the original sales and months arrays directly
     for (int i = 0; i < 12; i++) {
+        // Find the maximum sales in the remaining unsorted array
         float max_sales = sales[i];
         int max_index = i;
 
@@ -112,6 +126,7 @@ void sort_descending(float sales[], char *months[12]) {
     }
 }
 
+// Function to generate and display the sales report sorted from highest to lowest
 void descending_sales_report(float sales[], char *months[12]) {
     sort_descending(sales, months);
     print_sales_report(sales, months);
