@@ -10,6 +10,7 @@
 #include <stdio.h>
 #define SIZE 5
 
+// Function prototypes
 void printMatrix(int matrix[SIZE][SIZE]);
 void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]);
 void multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]);
@@ -17,6 +18,7 @@ void transposeMatrix(int matrix[SIZE][SIZE], int result[SIZE][SIZE]);
 
 int main() {
 
+    // Initialize two 5x5 matrices with sample data
     int m1[SIZE][SIZE] = {
         {1, 2, 3, 4, 5},
         {6, 7, 8, 9, 10},
@@ -34,6 +36,7 @@ int main() {
         };
 
 
+    // The resulting matrix for addition, multiplication, and transpose will be stored in the result variable
     int result[SIZE][SIZE];
 
     printf("Matrix 1:\n");
@@ -71,6 +74,8 @@ int main() {
     return 0;
 }
 
+
+// Function to print a 5x5 matrix
 void printMatrix(int matrix[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -80,6 +85,7 @@ void printMatrix(int matrix[SIZE][SIZE]) {
     }
 }
 
+// Function to add two 5x5 matrices and store the result in a third matrix
 void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -88,6 +94,7 @@ void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE])
     }
 }
 
+// Function to multiply two 5x5 matrices and store the result in a third matrix
 void multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -99,6 +106,7 @@ void multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][S
     }
 }
 
+// Function to transpose a 5x5 matrix and store the result in a third matrix
 void transposeMatrix(int matrix[SIZE][SIZE], int result[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
