@@ -1,2 +1,4 @@
 *.exe
 *.o
+sales_report/sales_report
+matrix_manipulation/matrix_manipulation
