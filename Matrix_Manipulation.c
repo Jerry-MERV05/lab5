@@ -87,6 +87,16 @@ void printMatrix(int matrix[SIZE][SIZE]) {
 
 // Function to add two 5x5 matrices and store the result in a third matrix
 void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]) {
+    // Check if the dimensions of the matrices are compatible for addition
+    // But since we are working with fixed size 5x5 matrices, this check is not necessary, but we can still include it for good practice
+    int m1_cols = SIZE;
+    int m2_rows = SIZE;
+
+    if (m1_cols != m2_rows) {
+        printf("Error: The number of columns in the first matrix must be equal to the number of rows in the second matrix for addition.\n");
+        return;
+    }
+
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             result[i][j] = m1[i][j] + m2[i][j];
@@ -96,6 +106,16 @@ void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE])
 
 // Function to multiply two 5x5 matrices and store the result in a third matrix
 void multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]) {
+    // Check if the dimensions of the matrices are compatible for multiplication
+    // But since we are working with fixed size 5x5 matrices, this check is not necessary, but we can still include it for good practice
+    int m1_cols = SIZE;
+    int m2_rows = SIZE;
+
+    if (m1_cols != m2_rows) {
+        printf("Error: The number of columns in the first matrix must be equal to the number of rows in the second matrix for multiplication.\n");
+        return;
+    }
+
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             result[i][j] = 0;
