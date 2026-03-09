@@ -39,20 +39,30 @@ int main() {
     printf("Matrix 1:\n");
     printMatrix(m1);
 
+    printf("\n");
+
     printf("\nMatrix 2:\n");
     printMatrix(m2);
+
+    printf("\n");
 
     printf("\nResulting Matrix after Addition:\n");
     addMatrices(m1, m2, result);
     printMatrix(result);
 
+    printf("\n");
+
     printf("\nResulting Matrix after Multiplication:\n");
     multiplyMatrices(m1, m2, result);
     printMatrix(result);
 
+    printf("\n");
+
     printf("\nTranspose of Matrix 1:\n");
     transposeMatrix(m1, result);
     printMatrix(result);
+
+    printf("\n");
 
     printf("\nTranspose of Matrix 2:\n");
     transposeMatrix(m2, result);
@@ -74,6 +84,25 @@ void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE])
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             result[i][j] = m1[i][j] + m2[i][j];
+        }
+    }
+}
+
+void multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int result[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < SIZE; k++) {
+                result[i][j] += m1[i][k] * m2[k][j];
+            }
+        }
+    }
+}
+
+void transposeMatrix(int matrix[SIZE][SIZE], int result[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[j][i] = matrix[i][j];
         }
     }
 }
