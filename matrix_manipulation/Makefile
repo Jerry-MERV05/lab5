@@ -8,10 +8,10 @@ OBJS = $(SRCS:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-    $(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
-    $(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 clean:
-    rm -f $(TARGET) $(OBJS)
+	rm -f $(TARGET) $(OBJS)
